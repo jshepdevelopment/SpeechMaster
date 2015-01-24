@@ -5,6 +5,7 @@ package com.rickgoldman.speechmaster;
  */
 import java.util.ArrayList;
 
+import android.graphics.PorterDuff;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
@@ -12,6 +13,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
@@ -55,6 +57,7 @@ public class VoiceRecognitionActivity extends Activity implements
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
                 if (isChecked) {
+                    buttonEffect(toggleButton);
                     progressBar.setVisibility(View.VISIBLE);
                     progressBar.setIndeterminate(true);
                     speech.startListening(recognizerIntent);
@@ -66,6 +69,27 @@ public class VoiceRecognitionActivity extends Activity implements
             }
         });
 
+    }
+
+    public static void buttonEffect(View button){
+        button.setOnTouchListener(new View.OnTouchListener() {
+
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        v.getBackground().setColorFilter(0xe0f47521, PorterDuff.Mode.SRC_ATOP);
+                        v.invalidate();
+                        break;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        v.getBackground().clearColorFilter();
+                        v.invalidate();
+                        break;
+                    }
+                }
+                return false;
+            }
+        });
     }
 
     @Override
