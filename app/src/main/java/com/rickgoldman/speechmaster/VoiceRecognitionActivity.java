@@ -3,26 +3,31 @@ package com.rickgoldman.speechmaster;
 /**
  * Created by Jason Shepherd on 1/23/2015.
  */
+
 import java.util.ArrayList;
 
+import android.content.Context;
 import android.graphics.PorterDuff;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class VoiceRecognitionActivity extends Activity implements
-        RecognitionListener {
+public class VoiceRecognitionActivity extends ActionBarActivity implements RecognitionListener {
 
     private TextView returnedText;
     private ToggleButton toggleButton;
@@ -69,6 +74,36 @@ public class VoiceRecognitionActivity extends Activity implements
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                openSettings();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void openSettings() {
+        //Do something with settings.
+        Context context = getApplicationContext();
+        CharSequence text = "Settings selected!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
     public static void buttonEffect(View button){
@@ -171,34 +206,34 @@ public class VoiceRecognitionActivity extends Activity implements
         String message;
         switch (errorCode) {
             case SpeechRecognizer.ERROR_AUDIO:
-                message = "Audio recording error";
+                message = "Can't record audio. Try again.";
                 break;
             case SpeechRecognizer.ERROR_CLIENT:
-                message = "Client side error";
+                message = "Sorry, application error. Try again.";
                 break;
             case SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS:
-                message = "You can't use this app!";
+                message = "You can't use this app! Try again.";
                 break;
             case SpeechRecognizer.ERROR_NETWORK:
-                message = "Sorry, there is something wrong with the network.";
+                message = "Sorry, there is something wrong with the network. Try again.";
                 break;
             case SpeechRecognizer.ERROR_NETWORK_TIMEOUT:
-                message = "Sorry, the network is taking too long.";
+                message = "Sorry, the network is taking too long. Try again.";
                 break;
             case SpeechRecognizer.ERROR_NO_MATCH:
-                message = "Couldn't understand you, try again.";
+                message = "Couldn't understand you, try again. Try again.";
                 break;
             case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
-                message = "Busy with something else.";
+                message = "Busy with something else. Try again.";
                 break;
             case SpeechRecognizer.ERROR_SERVER:
-                message = "Sorry, the server can't hear you.";
+                message = "Sorry, the server can't hear you. Try again.";
                 break;
             case SpeechRecognizer.ERROR_SPEECH_TIMEOUT:
                 message = "Speak louder please!";
                 break;
             default:
-                message = "Didn't understand, please try again.";
+                message = "Didn't understand. Try again.";
                 break;
         }
         return message;

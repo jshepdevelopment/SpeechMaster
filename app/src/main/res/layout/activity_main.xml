@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+
     <ImageView
         android:id="@+id/imageView1"
         android:contentDescription="@string/speech_prompt"
