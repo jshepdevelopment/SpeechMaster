@@ -5,14 +5,18 @@ package com.rickgoldman.speechmaster;
  */
 
 import java.util.ArrayList;
+import java.util.Random;
 
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.Toast;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -24,25 +28,29 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class VoiceRecognitionActivity extends ActionBarActivity implements RecognitionListener {
 
-    private TextView returnedText;
+    private TextView returnedText, textPhrase;
     private ToggleButton toggleButton;
+    private Button randomButton;
     private ProgressBar progressBar;
     private SpeechRecognizer speech = null;
     private Intent recognizerIntent;
     private String LOG_TAG = "VoiceRecognitionActivity";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        textPhrase = (TextView) findViewById(R.id.textPhrase);
         returnedText = (TextView) findViewById(R.id.textView1);
         progressBar = (ProgressBar) findViewById(R.id.progressBar1);
         toggleButton = (ToggleButton) findViewById(R.id.toggleButton1);
+        randomButton = (Button) findViewById(R.id.randomButton);
 
         progressBar.setVisibility(View.INVISIBLE);
         speech = SpeechRecognizer.createSpeechRecognizer(this);
@@ -58,11 +66,11 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
 
         toggleButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
+
             @Override
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
                 if (isChecked) {
-                    buttonEffect(toggleButton);
                     progressBar.setVisibility(View.VISIBLE);
                     progressBar.setIndeterminate(true);
                     speech.startListening(recognizerIntent);
@@ -71,6 +79,7 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
                     progressBar.setVisibility(View.INVISIBLE);
                     speech.stopListening();
                 }
+
             }
         });
 
@@ -91,6 +100,12 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
             case R.id.action_settings:
                 openSettings();
                 return true;
+            case R.id.action_about:
+                aboutApp();
+                return true;
+            case R.id.action_exit:
+                exitApp();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -106,25 +121,37 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
         toast.show();
     }
 
-    public static void buttonEffect(View button){
-        button.setOnTouchListener(new View.OnTouchListener() {
+    public void exitApp() {
+        //Do something with settings.
+        Context context = getApplicationContext();
+        CharSequence text = "Goodbye!";
+        int duration = Toast.LENGTH_SHORT;
 
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        v.getBackground().setColorFilter(0xe0f47521, PorterDuff.Mode.SRC_ATOP);
-                        v.invalidate();
-                        break;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        v.getBackground().clearColorFilter();
-                        v.invalidate();
-                        break;
-                    }
-                }
-                return false;
-            }
-        });
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+        super.finish();
+    }
+
+    public void aboutApp() {
+        //Do something with settings.
+        Context context = getApplicationContext();
+        CharSequence text = "Speech Master!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
+    public void makePhrase(View view) {
+
+        Random rn = new Random();
+        int phraseNum = rn.nextInt(8) + 1;
+
+        int[] phraseArray = new int[] { R.string.s1, R.string.s2, R.string.s3,
+                R.string.s4, R.string.s5, R.string.s6, R.string.s7, R.string.s8 };
+
+               textPhrase.setText(phraseArray[phraseNum]);
+
     }
 
     @Override
