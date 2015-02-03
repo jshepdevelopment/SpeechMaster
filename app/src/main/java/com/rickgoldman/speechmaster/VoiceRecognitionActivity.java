@@ -10,6 +10,7 @@ import java.util.Random;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.content.Context;
 import android.graphics.PorterDuff;
@@ -39,7 +40,7 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
     private SpeechRecognizer speech = null;
     private Intent recognizerIntent;
     private String LOG_TAG = "VoiceRecognitionActivity";
-
+    private int challengeLevel = 0; //0 for beginner, 1 for intermediate, 2 for advanced level
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,39 +98,66 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                openSettings();
-                return true;
             case R.id.action_about:
                 aboutApp();
                 return true;
-            case R.id.action_exit:
-                exitApp();
+
+            case R.id.action_beginner:
+                setBeginner();
+                return true;
+
+            case R.id.action_intermediate:
+                setIntermediate();
+                return true;
+
+            case R.id.action_advanced:
+                setAdvanced();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    public void openSettings() {
-        //Do something with settings.
+    public void setBeginner() {
+
+        //Set everything to beginner "mode"
+        ImageView image = (ImageView) findViewById(R.id.imageView1);
+        image.setImageResource(R.drawable.blue_bg);
+
         Context context = getApplicationContext();
-        CharSequence text = "Settings selected!";
+        CharSequence text = "Beginner";
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
     }
 
-    public void exitApp() {
-        //Do something with settings.
+    public void setIntermediate() {
+
+        //Set everything to intermediate "mode"
+        ImageView image = (ImageView) findViewById(R.id.imageView1);
+        image.setImageResource(R.drawable.yellow_bg);
+
         Context context = getApplicationContext();
-        CharSequence text = "Goodbye!";
+        CharSequence text = "Intermediate";
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
-        super.finish();
+    }
+
+    public void setAdvanced() {
+
+        //Set everything to advanced "mode"
+        ImageView image = (ImageView) findViewById(R.id.imageView1);
+        image.setImageResource(R.drawable.red_bg);
+
+        Context context = getApplicationContext();
+        CharSequence text = "Advanced";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
     public void aboutApp() {
@@ -236,7 +264,7 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
                 message = "Can't record audio. Try again.";
                 break;
             case SpeechRecognizer.ERROR_CLIENT:
-                message = "Sorry, application error. Try again.";
+                message = "Press speak and try again.";
                 break;
             case SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS:
                 message = "You can't use this app! Try again.";
