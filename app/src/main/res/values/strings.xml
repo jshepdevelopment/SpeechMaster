@@ -19,14 +19,32 @@
     <string name="say_this">Press speak and say this...</string>
     <string name="sounds_like">Sounds like you said...</string>
 
-    <string name="s1">Hello.</string>
-    <string name="s2">My name is _____.</string>
-    <string name="s3">How are you?</string>
-    <string name="s4">Do you speak Chinese?</string>
-    <string name="s5">I don\'t speak English.</string>
-    <string name="s6">Thank you.</string>
-    <string name="s7">You\'re welcome.</string>
-    <string name="s8">I am Chinese.</string>
+    <string name="b1">Hello.</string>
+    <string name="b2">My name is ...</string>
+    <string name="b3">How are you?</string>
+    <string name="b4">Do you speak ...?</string>
+    <string name="b5">I don\'t speak English.</string>
+    <string name="b6">Thank you.</string>
+    <string name="b7">You\'re welcome.</string>
+    <string name="b8">I come from ...</string>
+
+    <string name="i1">Where can I find the bank?</string>
+    <string name="i2">Do you know where the bathroom is?</string>
+    <string name="i3">Where is the supermarket?</string>
+    <string name="i4">Can you tell me where the bus stop is?</string>
+    <string name="i5">I don\'t really speak a lot of English.</string>
+    <string name="i6">Thank you for your time.</string>111
+    <string name="i7">It\'s been my pleasure.</string>
+    <string name="i8">That\'s all for now. Thank you.</string>
+
+    <string name="a1">This should be a fairly advanced sentence.</string>
+    <string name="a2">What time does the train arrive at the station?</string>
+    <string name="a3">Is there any place we can get a bit to eat?</string>
+    <string name="a4">As far as I know, there aren\'t any good restaurants around here.</string>
+    <string name="a5">I can speak English without many problems.</string>
+    <string name="a6">Where should we look for our classmates later?</string>
+    <string name="a7">Never mind. We\'re just trying to find our friends for dinner.</string>
+    <string name="a8">There are a lot of things we can do. What do you suggest?</string>
 
 
 

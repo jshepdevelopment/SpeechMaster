@@ -121,6 +121,8 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
     public void setBeginner() {
 
         //Set everything to beginner "mode"
+        challengeLevel = 0;
+
         ImageView image = (ImageView) findViewById(R.id.imageView1);
         image.setImageResource(R.drawable.blue_bg);
 
@@ -135,8 +137,10 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
     public void setIntermediate() {
 
         //Set everything to intermediate "mode"
+        challengeLevel = 1;
+
         ImageView image = (ImageView) findViewById(R.id.imageView1);
-        image.setImageResource(R.drawable.yellow_bg);
+        image.setImageResource(R.drawable.green_bg);
 
         Context context = getApplicationContext();
         CharSequence text = "Intermediate";
@@ -149,6 +153,8 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
     public void setAdvanced() {
 
         //Set everything to advanced "mode"
+        challengeLevel = 2;
+
         ImageView image = (ImageView) findViewById(R.id.imageView1);
         image.setImageResource(R.drawable.red_bg);
 
@@ -173,13 +179,31 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
     public void makePhrase(View view) {
 
         Random rn = new Random();
-        int phraseNum = rn.nextInt(8) + 1;
+        int phraseNum = rn.nextInt(7) + 1;
 
-        int[] phraseArray = new int[] { R.string.s1, R.string.s2, R.string.s3,
-                R.string.s4, R.string.s5, R.string.s6, R.string.s7, R.string.s8 };
+        //beginner
+        if (challengeLevel==0) {
+            int[] phraseArray = new int[]{R.string.b1, R.string.b2, R.string.b3,
+                    R.string.b4, R.string.b5, R.string.b6, R.string.b7, R.string.b8};
 
-               textPhrase.setText(phraseArray[phraseNum]);
+            textPhrase.setText(phraseArray[phraseNum]);
+        }
 
+        //intermediate
+        if (challengeLevel==1) {
+            int[] phraseArray = new int[]{R.string.i1, R.string.i2, R.string.i3,
+                    R.string.i4, R.string.i5, R.string.i6, R.string.i7, R.string.i8};
+
+            textPhrase.setText(phraseArray[phraseNum]);
+        }
+
+        //advanced
+        if (challengeLevel==2) {
+            int[] phraseArray = new int[]{R.string.a1, R.string.a2, R.string.a3,
+                    R.string.a4, R.string.a5, R.string.a6, R.string.a7, R.string.a8};
+
+            textPhrase.setText(phraseArray[phraseNum]);
+        }
     }
 
     @Override

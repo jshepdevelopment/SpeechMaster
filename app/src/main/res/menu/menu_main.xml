@@ -10,7 +10,7 @@
 
     <item android:title="@string/action_intermediate"
         android:id="@+id/action_intermediate"
-        android:icon="@drawable/button_yellow"
+        android:icon="@drawable/button_green"
         android:orderInCategory="100"
         app:showAsAction="always"/>
 
