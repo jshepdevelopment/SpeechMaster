@@ -1,2 +1,2 @@
 # SpeechMaster
-Speech Master is an application developed to assist students of English as a Second Lanuge to improve English pronunciation.
+Speech Master is an application to assist students of English as a Second Language to improve English pronunciation.
