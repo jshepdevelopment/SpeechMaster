@@ -182,18 +182,30 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
     public void makePhrase(View view) {
 
         Random rn = new Random();
-        int phraseNum = rn.nextInt(7) + 1;
+        int phraseNum;
 
         //beginner
         if (challengeLevel==0) {
+            phraseNum = rn.nextInt(49) + 1;
+
             int[] phraseArray = new int[]{R.string.b1, R.string.b2, R.string.b3,
-                    R.string.b4, R.string.b5, R.string.b6, R.string.b7, R.string.b8};
+                    R.string.b4, R.string.b5, R.string.b6, R.string.b7, R.string.b8,
+                    R.string.b9, R.string.b10, R.string.b11, R.string.b12, R.string.b13,
+                    R.string.b14, R.string.b15, R.string.b16, R.string.b17, R.string.b18,
+                    R.string.b19, R.string.b20, R.string.b21, R.string.b22, R.string.b23,
+                    R.string.b24, R.string.b25, R.string.b26, R.string.b27, R.string.b28,
+                    R.string.b29, R.string.b30, R.string.b31, R.string.b32, R.string.b33,
+                    R.string.b34, R.string.b35, R.string.b36, R.string.b37, R.string.b38,
+                    R.string.b39, R.string.b40, R.string.b41, R.string.b42, R.string.b43,
+                    R.string.b44, R.string.b45, R.string.b46, R.string.b47, R.string.b48,
+                    R.string.b49, R.string.b50};
 
             textPhrase.setText(phraseArray[phraseNum]);
         }
 
         //intermediate
         if (challengeLevel==1) {
+            phraseNum = rn.nextInt(7) + 1;
             int[] phraseArray = new int[]{R.string.i1, R.string.i2, R.string.i3,
                     R.string.i4, R.string.i5, R.string.i6, R.string.i7, R.string.i8};
 
@@ -202,6 +214,7 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
 
         //advanced
         if (challengeLevel==2) {
+            phraseNum = rn.nextInt(7) + 1;
             int[] phraseArray = new int[]{R.string.a1, R.string.a2, R.string.a3,
                     R.string.a4, R.string.a5, R.string.a6, R.string.a7, R.string.a8};
 
