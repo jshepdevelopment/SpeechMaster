@@ -7,6 +7,7 @@ package com.rickgoldman.speechmaster;
 import java.util.ArrayList;
 import java.util.Random;
 
+import android.app.ActionBar;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.Button;
@@ -52,6 +53,8 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
         progressBar = (ProgressBar) findViewById(R.id.progressBar1);
         toggleButton = (ToggleButton) findViewById(R.id.toggleButton1);
         randomButton = (Button) findViewById(R.id.randomButton);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_launcher);
 
         progressBar.setVisibility(View.INVISIBLE);
         speech = SpeechRecognizer.createSpeechRecognizer(this);
