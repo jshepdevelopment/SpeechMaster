@@ -16,6 +16,7 @@
     <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input.</string>
 
     <string name="more">Next</string>
+    <string name="next_please">Next please.</string>
     <string name="say_this">Press speak then say:</string>
     <string name="sounds_like">Sounds like you said:</string>
 
