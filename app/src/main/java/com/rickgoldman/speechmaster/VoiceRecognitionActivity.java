@@ -205,9 +205,18 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
 
         //intermediate
         if (challengeLevel==1) {
-            phraseNum = rn.nextInt(7) + 1;
+            phraseNum = rn.nextInt(49) + 1;
             int[] phraseArray = new int[]{R.string.i1, R.string.i2, R.string.i3,
-                    R.string.i4, R.string.i5, R.string.i6, R.string.i7, R.string.i8};
+                    R.string.i4, R.string.i5, R.string.i6, R.string.i7, R.string.i8,
+                    R.string.i9, R.string.i10, R.string.i11, R.string.i12, R.string.i13,
+                    R.string.i14, R.string.i15, R.string.i16, R.string.i17, R.string.i18,
+                    R.string.i19, R.string.i20, R.string.i21, R.string.i22, R.string.i23,
+                    R.string.i24, R.string.i25, R.string.i26, R.string.i27, R.string.i28,
+                    R.string.i29, R.string.i30, R.string.i31, R.string.i32, R.string.i33,
+                    R.string.i34, R.string.i35, R.string.i36, R.string.i37, R.string.i38,
+                    R.string.i39, R.string.i40, R.string.i41, R.string.i42, R.string.i43,
+                    R.string.i44, R.string.i45, R.string.i46, R.string.i47, R.string.i48,
+                    R.string.i49, R.string.i50};
 
             textPhrase.setText(phraseArray[phraseNum]);
         }
