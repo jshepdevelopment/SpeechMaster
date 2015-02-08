@@ -15,9 +15,9 @@
 
     <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input.</string>
 
-    <string name="more">More</string>
-    <string name="say_this">Press speak and say this...</string>
-    <string name="sounds_like">Sounds like you said...</string>
+    <string name="more">Next</string>
+    <string name="say_this">Press speak then say:</string>
+    <string name="sounds_like">Sounds like you said:</string>
 
     <string name="b1">Hello. \n /həlo/</string>
     <string name="b2">My name is \n /maj nem ɪz/</string>

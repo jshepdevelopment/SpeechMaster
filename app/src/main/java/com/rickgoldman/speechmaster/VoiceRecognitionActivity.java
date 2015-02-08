@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.content.Context;
-import android.graphics.PorterDuff;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
@@ -24,7 +23,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
@@ -53,8 +51,6 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
         progressBar = (ProgressBar) findViewById(R.id.progressBar1);
         toggleButton = (ToggleButton) findViewById(R.id.toggleButton1);
         randomButton = (Button) findViewById(R.id.randomButton);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.drawable.ic_launcher);
 
         progressBar.setVisibility(View.INVISIBLE);
         speech = SpeechRecognizer.createSpeechRecognizer(this);

@@ -21,6 +21,7 @@
         app:showAsAction="always"/>
 
     <item android:id="@+id/action_about" android:title="@string/action_about"
+        android:icon="@drawable/ic_launcher"
         android:orderInCategory="100" app:showAsAction="always" />
 
 
