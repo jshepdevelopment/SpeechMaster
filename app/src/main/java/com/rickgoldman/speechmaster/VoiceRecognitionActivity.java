@@ -5,11 +5,13 @@ package com.rickgoldman.speechmaster;
  */
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Random;
 
 import android.app.ActionBar;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -32,6 +34,7 @@ import android.widget.ToggleButton;
 
 public class VoiceRecognitionActivity extends ActionBarActivity implements RecognitionListener {
 
+    private TextToSpeech textSpeech;
     private TextView returnedText, textPhrase;
     private ToggleButton toggleButton;
     private Button randomButton;
@@ -63,6 +66,16 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
         recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_WEB_SEARCH);
         recognizerIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 3);
+
+        textSpeech = new TextToSpeech(getApplicationContext(),
+            new TextToSpeech.OnInitListener() {
+                @Override
+                public void onInit(int status) {
+                    if (status != TextToSpeech.ERROR) {
+                        textSpeech.setLanguage(Locale.UK);
+                    }
+                }
+            });
 
         toggleButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
@@ -235,6 +248,16 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
         }
     }
 
+    public void speakText(View view){
+        String toSpeak = textPhrase.getText().toString();
+        String firstLine = toSpeak.substring(0,toSpeak.indexOf("/"));
+
+        Toast.makeText(getApplicationContext(), firstLine,
+                Toast.LENGTH_SHORT).show();
+        textSpeech.speak(firstLine, TextToSpeech.QUEUE_FLUSH, null);
+
+    }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -246,6 +269,11 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
         if (speech != null) {
             speech.destroy();
             Log.i(LOG_TAG, "destroy");
+        }
+
+        if(textSpeech !=null){
+            textSpeech.stop();
+            textSpeech.shutdown();
         }
 
     }
