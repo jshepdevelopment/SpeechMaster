@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
 
-import android.app.ActionBar;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.widget.Button;
@@ -37,7 +35,6 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
     private TextToSpeech textSpeech;
     private TextView returnedText, textPhrase;
     private ToggleButton toggleButton;
-    private Button randomButton;
     private ProgressBar progressBar;
     private SpeechRecognizer speech = null;
     private Intent recognizerIntent;
@@ -53,7 +50,6 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
         returnedText = (TextView) findViewById(R.id.textView1);
         progressBar = (ProgressBar) findViewById(R.id.progressBar1);
         toggleButton = (ToggleButton) findViewById(R.id.toggleButton1);
-        randomButton = (Button) findViewById(R.id.randomButton);
 
         progressBar.setVisibility(View.INVISIBLE);
         speech = SpeechRecognizer.createSpeechRecognizer(this);

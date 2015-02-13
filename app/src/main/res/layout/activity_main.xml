@@ -34,7 +34,7 @@
         android:shadowColor="#333333"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/progressBar1"
         android:layout_below="@+id/textView2" />
 
     <ToggleButton
@@ -52,7 +52,6 @@
         android:layout_below="@+id/randomButton"
         android:layout_toStartOf="@+id/button"
         android:background="@drawable/toggle_button_selector"
-
         android:checked="false"
         android:layout_toLeftOf="@+id/button" />
 
@@ -94,11 +93,11 @@
         android:textColor="#FFFFFF"
         android:shadowColor="#333333"
         android:singleLine="false"
-        android:layout_below="@+id/textView"
+        android:text="@string/next_please"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/textView2"
-        android:text="@string/next_please" />
+        android:layout_below="@+id/textView"
+        android:layout_above="@+id/textView2" />
 
     <Button
 
@@ -114,7 +113,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:background="@drawable/default_button_selector"
-         />
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -124,7 +123,7 @@
         android:enabled="true"
         android:clickable="true"
         android:onClick="speakText"
-        android:background="@drawable/default_button_selector"
+        android:background="@drawable/listen_button_selector"
         android:layout_above="@+id/textView"
         android:layout_toLeftOf="@+id/randomButton"
         android:layout_toStartOf="@+id/randomButton" />
