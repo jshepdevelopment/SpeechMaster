@@ -69,6 +69,8 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
                 RecognizerIntent.LANGUAGE_MODEL_WEB_SEARCH);
         recognizerIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 3);
 
+        textPhrase.setText(R.string.next_please);
+
         textSpeech = new TextToSpeech(getApplicationContext(),
             new TextToSpeech.OnInitListener() {
                 @Override
@@ -78,6 +80,7 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
                     }
                 }
             });
+
 
         toggleButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
@@ -252,11 +255,9 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
 
     public void speakText(View view){
         String toSpeak = textPhrase.getText().toString();
-        String firstLine = toSpeak.substring(0,toSpeak.indexOf("/"));
+        String firstLine = toSpeak.substring(0, toSpeak.indexOf("/"));
 
-        Toast.makeText(getApplicationContext(), firstLine,
-                Toast.LENGTH_SHORT).show();
-        textSpeech.speak(firstLine, TextToSpeech.QUEUE_FLUSH, null);
+            textSpeech.speak(firstLine, TextToSpeech.QUEUE_FLUSH, null);
 
     }
 

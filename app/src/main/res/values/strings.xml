@@ -9,17 +9,15 @@
     <string name="action_advanced">Advanced</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 
-
     <string name="hello_world">Master English Pronunciation</string>
     <string name="speech_prompt">Say something.</string>
-
 
     <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input.</string>
 
     <string name="more">Next</string>
     <string name="listen">Listen</string>
 
-    <string name="next_please">Next please.</string>
+    <string name="next_please">Next please. \n /nɛkst pliz/</string>
     <string name="say_this">Press speak then say:</string>
     <string name="sounds_like">Sounds like you said:</string>
 
