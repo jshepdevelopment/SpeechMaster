@@ -11,7 +11,6 @@ import java.util.Random;
 
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.widget.Button;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import android.widget.ImageView;
@@ -113,10 +112,16 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        final Context context = this;
+
         // Handle presses on the action bar items
         switch (item.getItemId()) {
             case R.id.action_about:
-                aboutApp();
+
+                Intent intent = new Intent(context, AboutScreen.class);
+                startActivity(intent);
+
                 return true;
 
             case R.id.action_beginner:
@@ -177,16 +182,6 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
 
         Context context = getApplicationContext();
         CharSequence text = "Advanced";
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-    }
-
-    public void aboutApp() {
-        //Do something with settings.
-        Context context = getApplicationContext();
-        CharSequence text = "Speech Master!";
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, text, duration);
