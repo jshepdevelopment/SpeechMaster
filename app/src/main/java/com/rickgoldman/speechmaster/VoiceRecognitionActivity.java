@@ -1,7 +1,8 @@
 package com.rickgoldman.speechmaster;
 
 /**
- * Created by Jason Shepherd on 1/23/2015.
+ * Created by Jason Shepherd
+ * Copyright 2015
  */
 
 import java.util.ArrayList;
@@ -11,6 +12,8 @@ import java.util.Random;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.widget.Button;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.content.Context;
@@ -46,6 +49,9 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         textPhrase = (TextView) findViewById(R.id.textPhrase);
         returnedText = (TextView) findViewById(R.id.textView1);
         progressBar = (ProgressBar) findViewById(R.id.progressBar1);
@@ -68,7 +74,7 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
                 @Override
                 public void onInit(int status) {
                     if (status != TextToSpeech.ERROR) {
-                        textSpeech.setLanguage(Locale.UK);
+                        textSpeech.setLanguage(Locale.US);
                     }
                 }
             });

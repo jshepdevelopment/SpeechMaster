@@ -4,12 +4,20 @@
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
+    <!-- Include required permissions for Google Mobile Ads to run-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
 
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light" >
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
 
         <!-- Splash screen -->
         <activity
@@ -30,6 +38,11 @@
             android:label="@string/app_name"
             >
         </activity>
+
+        <!--Include the AdActivity configChanges and theme. -->
+        <activity android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
     </application>
 
 </manifest>
