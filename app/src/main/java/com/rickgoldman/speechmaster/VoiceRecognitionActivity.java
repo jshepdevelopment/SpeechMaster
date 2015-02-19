@@ -262,19 +262,7 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        if (speech != null) {
-            speech.destroy();
-            Log.i(LOG_TAG, "destroy");
-        }
-
-        if(textSpeech !=null){
-            textSpeech.stop();
-            textSpeech.shutdown();
-        }
-
-    }
+    protected void onPause() { super.onPause(); }
 
     @Override
     public void onBeginningOfSpeech() {
@@ -355,7 +343,7 @@ public class VoiceRecognitionActivity extends ActionBarActivity implements Recog
                 message = "Sorry, the network is taking too long. Try again.";
                 break;
             case SpeechRecognizer.ERROR_NO_MATCH:
-                message = "Couldn't understand you, try again. Try again.";
+                message = "Couldn't understand you. Try again.";
                 break;
             case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
                 message = "Busy with something else. Try again.";
