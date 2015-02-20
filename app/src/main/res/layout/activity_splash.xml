@@ -1,25 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    android:id="@+id/aboutlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/grey_bg"
-    android:id="@+id/aboutlayout">
-
-    <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@drawable/speechmaster_logo" />
+    android:background="#ffffff"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:textSize="12sp"
-        android:textColor="#454545"
-        android:gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:text="rickgoldman.com/speechmaster" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/app_name_version"
+        android:id="@+id/textView3"
+        android:textColor="#000000"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/copyright"
+        android:id="@+id/textView4"
+        android:textColor="#000000"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
+
+    <ImageView
+        android:id="@+id/speechmaster_logo"
+        android:contentDescription="@string/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/speechmaster_logo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:adjustViewBounds="true"
+        android:layout_above="@+id/textView5"
+        android:layout_below="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="@string/app_info"
+        android:id="@+id/textView5"
+        android:textColor="#000000"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="148dp"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000"
+        android:text="@string/app_url"
+        android:id="@+id/textView6"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

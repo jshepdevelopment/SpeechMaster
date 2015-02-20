@@ -2,6 +2,11 @@
 <resources>
 
     <string name="app_name">Speech Master</string>
+    <string name="app_name_version">Speech Master Lite 1.0</string>
+    <string name="copyright">©2015 Jason Shepherd \n</string>
+    <string name="app_info">\n Designed for learners of English as a second language. Used to improve English pronunciation skills. Practice your pronunciation!</string>
+    <string name="app_url">rickgoldman.com/speechmaster</string>
+
     <string name="action_about">About</string>
     <string name="action_exit">Exit</string>
     <string name="action_beginner">Beginner</string>
@@ -87,7 +92,7 @@
     <string name="i13">Can you speak another language? \n /kæn ju spik ənəðər læŋgwədʒ/</string>
     <string name="i14">No, sorry. I only speak English. \n /no sɑri aj onli spik ɪŋglɪʃ/</string>
     <string name="i15">Pardon me, how old are you? \n /pɑrdən mi haw old ɑr ju/</string>
-    <string name="i16">Twenty-eight. I\'m twenty-eight years old? \n /twɛnti- et ajm twɛnti- et jɪrz old/</string>
+    <string name="i16">Twenty eight. I\'m twenty eight years old. \n /twɛnti- et ajm twɛnti- et jɪrz old/</string>
     <string name="i17">What do you do for a living? \n /wət du ju du fɔr ə lɪvɪŋ/</string>
     <string name="i18">I\'m studying to be a doctor. \n /ajm stədiɪŋ tu bi ə dɑktər/</string>
     <string name="i19">Do you mind if I ask a personal question? \n /du ju majnd ɪf aj æsk ə pərsənəl kwɛstʃən/</string>
